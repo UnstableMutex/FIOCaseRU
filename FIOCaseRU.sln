@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU", "FIOCaseRU\FIOCaseRU.csproj", "{D307C32E-40BA-4915-B2EB-0AA0EB02ABC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU.Tests", "FIOCaseRU.Tests\FIOCaseRU.Tests.csproj", "{0B83C6D4-8EF0-4B76-88AA-F70D846DB56E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU.VisualTest", "FIOCaseRU.VisualTest\FIOCaseRU.VisualTest.csproj", "{F9080F66-386B-45FE-A5A0-C3BE7F6E23C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU.ManualTest", "FIOCaseRU.ManualTest\FIOCaseRU.ManualTest.csproj", "{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs22
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FIOCaseRU.Tests\\FIOCaseRU.Tests.csproj
+		SccProjectName1 = FIOCaseRU.Tests
+		SccLocalPath1 = FIOCaseRU.Tests
+		SccProjectUniqueName2 = FIOCaseRU.VisualTest\\FIOCaseRU.VisualTest.csproj
+		SccProjectName2 = FIOCaseRU.VisualTest
+		SccLocalPath2 = FIOCaseRU.VisualTest
+		SccProjectUniqueName3 = FIOCaseRU\\FIOCaseRU.csproj
+		SccProjectName3 = FIOCaseRU
+		SccLocalPath3 = FIOCaseRU
+		SccProjectUniqueName4 = FIOCaseRU.ManualTest\\FIOCaseRU.ManualTest.csproj
+		SccProjectName4 = FIOCaseRU.ManualTest
+		SccLocalPath4 = FIOCaseRU.ManualTest
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D307C32E-40BA-4915-B2EB-0AA0EB02ABC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D307C32E-40BA-4915-B2EB-0AA0EB02ABC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D307C32E-40BA-4915-B2EB-0AA0EB02ABC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D307C32E-40BA-4915-B2EB-0AA0EB02ABC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B83C6D4-8EF0-4B76-88AA-F70D846DB56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B83C6D4-8EF0-4B76-88AA-F70D846DB56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B83C6D4-8EF0-4B76-88AA-F70D846DB56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B83C6D4-8EF0-4B76-88AA-F70D846DB56E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9080F66-386B-45FE-A5A0-C3BE7F6E23C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9080F66-386B-45FE-A5A0-C3BE7F6E23C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9080F66-386B-45FE-A5A0-C3BE7F6E23C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9080F66-386B-45FE-A5A0-C3BE7F6E23C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
