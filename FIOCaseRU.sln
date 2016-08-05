@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casers.SqlDB", "Casers.SqlDB\Casers.SqlDB.csproj", "{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ExceptionsDB", "ExceptionsDB\ExceptionsDB.sqlproj", "{74E8AAFA-819E-4258-B186-2B543515C789}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,12 @@ Global
 		{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E8AAFA-819E-4258-B186-2B543515C789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E8AAFA-819E-4258-B186-2B543515C789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E8AAFA-819E-4258-B186-2B543515C789}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{74E8AAFA-819E-4258-B186-2B543515C789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E8AAFA-819E-4258-B186-2B543515C789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E8AAFA-819E-4258-B186-2B543515C789}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
