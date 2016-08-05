@@ -50,31 +50,51 @@ namespace WebAPI.Controllers
         // GET: api/Casing
         public CasedFIO Get(string surname, string firstName, string patronymic)
         {
+
+
             CasedFIO result = new CasedFIO();
-            DeterminyGender gdet = new DeterminyGender();
-            var gender = gdet.ByPatronymic(patronymic);
+
+
+
             var sc = mixedCasers.SurnameCaser;
+            var fc = mixedCasers.FirstNameCaser;
+            var pc = mixedCasers.PatronymicCaser;
+            result.Nominative.Surname = sc.GetCase(surname, Sex.Undefined, Case.Nominative);
+            result.Nominative.FirstName = sc.GetCase(firstName, Sex.Undefined, Case.Nominative);
+            result.Nominative.Patronymic = sc.GetCase(patronymic, Sex.Undefined, Case.Nominative);
+          
+
+
+            var gender = GetSex(result.Nominative);
+            var g = GetGender(result.Nominative);
+
+            result.Nominative.Gender = g;
+            result.Ablative.Gender = g;
+            result.Dative.Gender = g;
+            result.Genitive.Gender = g;
+            result.Prepositional.Gender = g;
+
+
             result.Ablative.Surname = sc.GetCase(surname, gender, Case.Ablative);
             result.Dative.Surname = sc.GetCase(surname, gender, Case.Dative);
             result.Genitive.Surname = sc.GetCase(surname, gender, Case.Genitive);
             result.Prepositional.Surname = sc.GetCase(surname, gender, Case.Prepositional);
-            var fc = mixedCasers.FirstNameCaser;
+
             result.Ablative.FirstName = fc.GetCase(firstName, gender, Case.Ablative);
             result.Dative.FirstName = fc.GetCase(firstName, gender, Case.Dative);
             result.Genitive.FirstName = fc.GetCase(firstName, gender, Case.Genitive);
             result.Prepositional.FirstName = fc.GetCase(firstName, gender, Case.Prepositional);
-            var pc = mixedCasers.PatronymicCaser;
+
             result.Ablative.Patronymic = pc.GetCase(patronymic, gender, Case.Ablative);
             result.Dative.Patronymic = pc.GetCase(patronymic, gender, Case.Dative);
             result.Genitive.Patronymic = pc.GetCase(patronymic, gender, Case.Genitive);
             result.Prepositional.Patronymic = pc.GetCase(patronymic, gender, Case.Prepositional);
-
             Action<CasedSimpleFIO> fullcalcer =
                 (fio) => fio.Full = fio.Surname + " " + fio.FirstName + " " + fio.Patronymic;
             Action<CasedSimpleFIO> abbrcalcer =
-                (fio) => fio.Abbr = fio.Surname + " " + fio.FirstName[0] + "." + fio.Patronymic[0]+".";
+                (fio) => fio.Abbr = fio.Surname + " " + fio.FirstName[0] + "." + fio.Patronymic[0] + ".";
 
-            Action<CasedSimpleFIO> iocalcer = (fio) => fio.IO = fio.FirstName + " "+fio.Patronymic;
+            Action<CasedSimpleFIO> iocalcer = (fio) => fio.IO = fio.FirstName + " " + fio.Patronymic;
 
             Action<CasedSimpleFIO> complexcalcer = fio =>
             {
@@ -90,6 +110,31 @@ namespace WebAPI.Controllers
             return result;
 
         }
+
+        private static Sex GetSex(CasedSimpleFIO nominative)
+        {
+            DeterminyGender gdet = new DeterminyGender();
+
+            var gender = gdet.ByPatronymic(nominative.Patronymic);
+            return gender;
+        }
+        private static Gender GetGender(CasedSimpleFIO nominative)
+        {
+            var s = GetSex(nominative);
+         
+            switch (s)
+            {
+                    case Sex.Undefined:
+                    return Gender.Undefined;
+                    case Sex.Female:
+                    return Gender.Female;
+                    case Sex.Male:
+                    return Gender.Male;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
         public CasedFIO Get(string surname, string firstName, Sex gender)
         {
             CasedFIO result = new CasedFIO();

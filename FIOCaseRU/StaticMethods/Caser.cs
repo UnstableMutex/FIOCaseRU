@@ -1,4 +1,5 @@
 using System;
+using System.Data.SqlClient;
 using System.Runtime.Serialization;
 
 namespace FIOCaseRU.StaticMethods
@@ -23,6 +24,11 @@ public  abstract class CaserBase:ICaser
                 return true;
             }
             catch (CaserException)
+            {
+                result = null;
+                return false;
+            }
+            catch (InvalidOperationException)
             {
                 result = null;
                 return false;
