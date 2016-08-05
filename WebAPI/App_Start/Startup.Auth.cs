@@ -11,7 +11,7 @@ using Owin;
 using WebApplication1.Providers;
 using WebApplication1.Models;
 
-namespace WebApplication1
+namespace WebAPI
 {
     public partial class Startup
     {
