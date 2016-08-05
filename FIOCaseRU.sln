@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU.ManualTest", "FIO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casers.SqlDB", "Casers.SqlDB\Casers.SqlDB.csproj", "{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

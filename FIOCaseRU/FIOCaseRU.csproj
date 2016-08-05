@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Case.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Sex.cs" />
     <Compile Include="StaticMethods\Capitalizer.cs" />
     <Compile Include="StaticMethods\Caser.cs" />
+    <Compile Include="StaticMethods\ChainedCaser.cs" />
     <Compile Include="StaticMethods\DeterminyGender.cs" />
     <Compile Include="StaticMethods\FirstNameCaser.cs" />
     <Compile Include="StaticMethods\PatronymicCaser.cs" />
