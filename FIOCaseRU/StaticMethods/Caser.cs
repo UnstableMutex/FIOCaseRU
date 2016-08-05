@@ -33,6 +33,11 @@ public  abstract class CaserBase:ICaser
                 result = null;
                 return false;
             }
+            catch (NullReferenceException)
+            {
+                result = null;
+                return false;
+            }
         }
     }
   public  abstract class Caser : CaserBase

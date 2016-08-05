@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
         private static FIOCaser CreateCaser()
         {
             var mixedCasers = new FIOCaser();
-            var cs = "";
+            var cs = @"Server=sam-cld-43089-2\DEV;Database=ExceptionsDB;Trusted_Connection=True;";
             var surnameLL = new LinkedList<ICaser>();
             surnameLL.AddLast(new SurnameCaser());
             surnameLL.AddFirst(new SurnameSqlDBCaser(cs));
