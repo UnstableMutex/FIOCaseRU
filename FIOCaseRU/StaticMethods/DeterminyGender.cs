@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FIOCaseRU.StaticMethods
 {
-    class DeterminyGender
+  public class DeterminyGender
     {
         public Sex BySurname(string str)
         {

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FIOCaseRU.StaticMethods
 {
-    class FirstNameCaser:Caser
+  public  class FirstNameCaser:Caser
     {
         protected override string GetGenitive(string toCase, Sex gender)
         {

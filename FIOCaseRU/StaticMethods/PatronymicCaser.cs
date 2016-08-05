@@ -2,7 +2,7 @@ using System;
 
 namespace FIOCaseRU.StaticMethods
 {
-    class PatronymicCaser:Caser
+   public class PatronymicCaser:Caser
     {
         protected override string GetGenitive(string toCase, Sex gender)
         {

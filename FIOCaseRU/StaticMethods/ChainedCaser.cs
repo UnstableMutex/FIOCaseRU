@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FIOCaseRU.StaticMethods
 {
-    class ChainedCaser : CaserBase
+   public class ChainedCaser : CaserBase
     {
         private readonly LinkedList<ICaser> _list;
 

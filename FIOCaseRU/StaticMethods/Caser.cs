@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace FIOCaseRU.StaticMethods
 {
 
-    interface ICaser
+   public interface ICaser
     {
         string GetCase(string toCase, Sex gender, Case c);
         bool TryGetCase(string toCase, Sex gender, Case c, out string result);
@@ -29,7 +29,7 @@ public  abstract class CaserBase:ICaser
             }
         }
     }
-    abstract class Caser : CaserBase
+  public  abstract class Caser : CaserBase
     {
         public override string GetCase(string toCase, Sex gender, Case c)
         {

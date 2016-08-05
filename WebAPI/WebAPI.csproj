@@ -206,6 +206,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CasingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -285,6 +286,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Casers.SqlDB\Casers.SqlDB.csproj">
+      <Project>{47F97E7B-AB84-4A1B-93B4-8828DDC521DD}</Project>
+      <Name>Casers.SqlDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FIOCaseRU\FIOCaseRU.csproj">
+      <Project>{D307C32E-40BA-4915-B2EB-0AA0EB02ABC1}</Project>
+      <Name>FIOCaseRU</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

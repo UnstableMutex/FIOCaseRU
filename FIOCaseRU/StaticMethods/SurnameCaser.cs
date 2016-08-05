@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FIOCaseRU.StaticMethods
 {
-    class SurnameCaser : Caser
+  public  class SurnameCaser : Caser
     {
 
 

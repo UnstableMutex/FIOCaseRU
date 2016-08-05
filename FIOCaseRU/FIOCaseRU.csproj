@@ -54,6 +54,7 @@
     <Compile Include="StaticMethods\Caser.cs" />
     <Compile Include="StaticMethods\ChainedCaser.cs" />
     <Compile Include="StaticMethods\DeterminyGender.cs" />
+    <Compile Include="StaticMethods\FIOCaser.cs" />
     <Compile Include="StaticMethods\FirstNameCaser.cs" />
     <Compile Include="StaticMethods\PatronymicCaser.cs" />
     <Compile Include="StaticMethods\SurnameCaser.cs" />
