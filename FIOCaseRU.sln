@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU", "FIOCaseRU\FIOCaseRU.csproj", "{D307C32E-40BA-4915-B2EB-0AA0EB02ABC1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU.Tests", "FIOCaseRU.Tests\FIOCaseRU.Tests.csproj", "{0B83C6D4-8EF0-4B76-88AA-F70D846DB56E}"
@@ -9,25 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU.VisualTest", "FIO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIOCaseRU.ManualTest", "FIOCaseRU.ManualTest\FIOCaseRU.ManualTest.csproj", "{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs22
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = FIOCaseRU.Tests\\FIOCaseRU.Tests.csproj
-		SccProjectName1 = FIOCaseRU.Tests
-		SccLocalPath1 = FIOCaseRU.Tests
-		SccProjectUniqueName2 = FIOCaseRU.VisualTest\\FIOCaseRU.VisualTest.csproj
-		SccProjectName2 = FIOCaseRU.VisualTest
-		SccLocalPath2 = FIOCaseRU.VisualTest
-		SccProjectUniqueName3 = FIOCaseRU\\FIOCaseRU.csproj
-		SccProjectName3 = FIOCaseRU
-		SccLocalPath3 = FIOCaseRU
-		SccProjectUniqueName4 = FIOCaseRU.ManualTest\\FIOCaseRU.ManualTest.csproj
-		SccProjectName4 = FIOCaseRU.ManualTest
-		SccLocalPath4 = FIOCaseRU.ManualTest
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -49,6 +35,10 @@ Global
 		{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{468D3EAD-B85C-478D-85C6-FFBE9BAB75CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FF15FD-3B95-4EB5-BFFD-0A08FC559782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
