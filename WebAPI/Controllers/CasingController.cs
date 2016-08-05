@@ -53,16 +53,19 @@ namespace WebAPI.Controllers
 
 
             CasedFIO result = new CasedFIO();
-
+            Capitalize cap = new Capitalize();
+            surname = cap.Capitalizer(surname);
+            firstName = cap.Capitalizer(firstName);
+            patronymic = cap.Capitalizer(patronymic);
 
 
             var sc = mixedCasers.SurnameCaser;
             var fc = mixedCasers.FirstNameCaser;
             var pc = mixedCasers.PatronymicCaser;
             result.Nominative.Surname = sc.GetCase(surname, Sex.Undefined, Case.Nominative);
-            result.Nominative.FirstName = sc.GetCase(firstName, Sex.Undefined, Case.Nominative);
-            result.Nominative.Patronymic = sc.GetCase(patronymic, Sex.Undefined, Case.Nominative);
-          
+            result.Nominative.FirstName = fc.GetCase(firstName, Sex.Undefined, Case.Nominative);
+            result.Nominative.Patronymic = pc.GetCase(patronymic, Sex.Undefined, Case.Nominative);
+
 
 
             var gender = GetSex(result.Nominative);
@@ -121,14 +124,14 @@ namespace WebAPI.Controllers
         private static Gender GetGender(CasedSimpleFIO nominative)
         {
             var s = GetSex(nominative);
-         
+
             switch (s)
             {
-                    case Sex.Undefined:
+                case Sex.Undefined:
                     return Gender.Undefined;
-                    case Sex.Female:
+                case Sex.Female:
                     return Gender.Female;
-                    case Sex.Male:
+                case Sex.Male:
                     return Gender.Male;
                 default:
                     throw new NotImplementedException();
@@ -138,7 +141,19 @@ namespace WebAPI.Controllers
         public CasedFIO Get(string surname, string firstName, Sex gender)
         {
             CasedFIO result = new CasedFIO();
+
+            Capitalize cap = new Capitalize();
+            surname = cap.Capitalizer(surname);
+            firstName = cap.Capitalizer(firstName);
             var sc = mixedCasers.SurnameCaser;
+            var fc = mixedCasers.FirstNameCaser;
+
+            result.Nominative.Surname = sc.GetCase(surname, Sex.Undefined, Case.Nominative);
+            result.Nominative.FirstName = fc.GetCase(firstName, Sex.Undefined, Case.Nominative);
+
+
+
+
 
             result.Ablative.Surname = sc.GetCase(surname, gender, Case.Ablative);
             result.Dative.Surname = sc.GetCase(surname, gender, Case.Dative);
@@ -146,7 +161,7 @@ namespace WebAPI.Controllers
             result.Prepositional.Surname = sc.GetCase(surname, gender, Case.Prepositional);
 
 
-            var fc = mixedCasers.FirstNameCaser;
+
             result.Ablative.FirstName = fc.GetCase(firstName, gender, Case.Ablative);
             result.Dative.FirstName = fc.GetCase(firstName, gender, Case.Dative);
             result.Genitive.FirstName = fc.GetCase(firstName, gender, Case.Genitive);

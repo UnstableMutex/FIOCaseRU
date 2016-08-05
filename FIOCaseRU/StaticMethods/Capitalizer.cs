@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FIOCaseRU.StaticMethods
 {
-    class Capitalize
+  public  class Capitalize
     {
 
         public virtual string Capitalizer(string str)
