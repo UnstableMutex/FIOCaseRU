@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FIOCaseRU.StaticMethods
 {
-  public class DeterminyGender
+    public class DeterminyGender
     {
         public Sex BySurname(string str)
         {
@@ -13,10 +13,10 @@ namespace FIOCaseRU.StaticMethods
         }
         public Sex ByFirstName(string str) { return Sex.Undefined; }
 
-      public Sex ByPatronymic(string str)
-      {
+        public Sex ByPatronymic(string str)
+        {
 
-          var patronymic = str;
+            var patronymic = str;
             Sex res;
             if (patronymic == string.Empty)
                 return Sex.Undefined;
@@ -43,6 +43,16 @@ namespace FIOCaseRU.StaticMethods
                     break;
             }
             return res;
+        }
+
+        public Sex ByFIO(string surname, string firstName, string patronymic)
+        {
+            return ByPatronymic(patronymic);
+        }
+
+        public Sex ByFI(string surname, string firstName)
+        {
+            
         }
     }
 }

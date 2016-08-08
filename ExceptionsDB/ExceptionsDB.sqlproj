@@ -64,5 +64,11 @@
     <Build Include="FirstName.sql" />
     <Build Include="Patronymic.sql" />
     <Build Include="Casing.sql" />
+    <Build Include="GenderByPatronymic.sql" />
+    <Build Include="GenderBySurname.sql" />
+    <Build Include="GenderByFirstName.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ExceptionsDB.refactorlog" />
   </ItemGroup>
 </Project>

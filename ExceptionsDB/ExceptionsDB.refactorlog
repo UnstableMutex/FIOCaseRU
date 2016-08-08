@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="345a39cc-0aa0-4e88-8127-fd09bc746497" ChangeDateTime="08/08/2016 05:40:10">
+    <Property Name="ElementName" Value="[dbo].[GenderByPatronymic].[Patronymiv]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GenderByPatronymic]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Patronymic" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4d03772f-dcff-4517-8d8f-22c9a2bebf1b" ChangeDateTime="08/08/2016 05:41:48">
+    <Property Name="ElementName" Value="[dbo].[GenderByPatronymic].[Patronymic]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GenderByPatronymic]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TargetString" />
+  </Operation>
+</Operations>
