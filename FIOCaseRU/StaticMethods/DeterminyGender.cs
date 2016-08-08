@@ -7,50 +7,50 @@ namespace FIOCaseRU.StaticMethods
 {
     public class DeterminyGender
     {
-        public Sex BySurname(string str)
+        public Gender BySurname(string str)
         {
-            return Sex.Undefined;
+            return Gender.Undefined;
         }
-        public Sex ByFirstName(string str) { return Sex.Undefined; }
+        public Gender ByFirstName(string str) { return Gender.Undefined; }
 
-        public Sex ByPatronymic(string str)
+        public Gender ByPatronymic(string str)
         {
 
             var patronymic = str;
-            Sex res;
+            Gender res;
             if (patronymic == string.Empty)
-                return Sex.Undefined;
+                return Gender.Undefined;
             string o2simend = patronymic.Substring(patronymic.Length - 2);
             switch (o2simend)
             {
                 case "ич":
-                    res = Sex.Male;
+                    res = Gender.Male;
                     break;
                 case "на":
-                    res = Sex.Female;
+                    res = Gender.Female;
                     break;
                 case "лы":
-                    res = Sex.Male;
+                    res = Gender.Male;
                     break;
                 case "ик":
-                    res = Sex.Male;
+                    res = Gender.Male;
                     break;
                 case "зы":
-                    res = Sex.Female;
+                    res = Gender.Female;
                     break;
                 default:
-                    res = Sex.Undefined;
+                    res = Gender.Undefined;
                     break;
             }
             return res;
         }
 
-        public Sex ByFIO(string surname, string firstName, string patronymic)
+        public Gender ByFIO(string surname, string firstName, string patronymic)
         {
             return ByPatronymic(patronymic);
         }
 
-        public Sex ByFI(string surname, string firstName)
+        public Gender ByFI(string surname, string firstName)
         {
             
         }

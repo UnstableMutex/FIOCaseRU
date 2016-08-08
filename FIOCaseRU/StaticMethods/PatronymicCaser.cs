@@ -4,7 +4,7 @@ namespace FIOCaseRU.StaticMethods
 {
    public class PatronymicCaser:Caser
     {
-        protected override string GetGenitive(string toCase, Sex gender)
+        protected override string GetGenitive(string toCase, Gender gender)
         {
             string oRP = String.Empty;
             string pat = toCase;
@@ -34,7 +34,7 @@ namespace FIOCaseRU.StaticMethods
             return oRP;
         }
 
-        protected override string GetAblative(string toCase, Sex gender)
+        protected override string GetAblative(string toCase, Gender gender)
         {
             string patronymic = toCase;
             if (string.IsNullOrEmpty(patronymic))
@@ -61,7 +61,7 @@ namespace FIOCaseRU.StaticMethods
             return oTP;
         }
 
-        protected override string GetDative(string toCase, Sex gender)
+        protected override string GetDative(string toCase, Gender gender)
         {
             var patronymic = toCase;
             string oDP = String.Empty;
@@ -84,7 +84,7 @@ namespace FIOCaseRU.StaticMethods
             return oDP;
         }
 
-        protected override string GetPrepositional(string toCase, Sex gender)
+        protected override string GetPrepositional(string toCase, Gender gender)
         {
             string patronymic = toCase;
             string oPP = String.Empty;

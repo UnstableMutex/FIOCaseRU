@@ -27,7 +27,7 @@ namespace FIOCaseRU.Tests
         public void TestMethod1112342()
         {
             string ExpectedRPm = "Кузьменко Алексеем";
-            FIO fm = new FIO("Кузьменко", "Алексей", Sex.Male);
+            FIO fm = new FIO("Кузьменко", "Алексей", Gender.Male);
             Assert.AreEqual(fm.Ablative.Full, ExpectedRPm);
          
         }
@@ -36,7 +36,7 @@ namespace FIOCaseRU.Tests
         public void TestMethod111234234()
         {
             string ExpectedRPm = "Кузьменко Алексея";
-            FIO fm = new FIO("Кузьменко", "Алексей", Sex.Male);
+            FIO fm = new FIO("Кузьменко", "Алексей", Gender.Male);
             Assert.AreEqual(fm.Genitive.Full, ExpectedRPm);
          
         }   [TestMethod]

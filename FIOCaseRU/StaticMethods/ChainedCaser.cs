@@ -15,7 +15,7 @@ namespace FIOCaseRU.StaticMethods
         }
 
     
-        public override string GetCase(string toCase, Sex gender, Case c)
+        public override string GetCase(string toCase, Gender gender, Case c)
         {
             var f = _list.First;
             string res;

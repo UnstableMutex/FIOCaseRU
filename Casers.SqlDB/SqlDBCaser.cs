@@ -17,7 +17,7 @@ namespace Casers.SqlDB
             _connCs = connCS;
             _tableName = tableName;
         }
-        public override string GetCase(string toCase, Sex gender, Case c)
+        public override string GetCase(string toCase, Gender gender, Case c)
         {
             var sqlQuery = "select Cased from Casing.{0} where Nominative = '{1}' and [Case]={2} and Gender={3}";
             var Query = string.Format(sqlQuery, _tableName, toCase, (byte)c, (byte)gender);

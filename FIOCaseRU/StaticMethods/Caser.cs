@@ -7,16 +7,16 @@ namespace FIOCaseRU.StaticMethods
 
    public interface ICaser
     {
-        string GetCase(string toCase, Sex gender, Case c);
-        bool TryGetCase(string toCase, Sex gender, Case c, out string result);
+        string GetCase(string toCase, Gender gender, Case c);
+        bool TryGetCase(string toCase, Gender gender, Case c, out string result);
 
     }
 
 public  abstract class CaserBase:ICaser
   {
-      public abstract string GetCase(string toCase, Sex gender, Case c);
+      public abstract string GetCase(string toCase, Gender gender, Case c);
         
-        public bool TryGetCase(string toCase, Sex gender, Case c, out string result)
+        public bool TryGetCase(string toCase, Gender gender, Case c, out string result)
         {
             try
             {
@@ -42,7 +42,7 @@ public  abstract class CaserBase:ICaser
     }
   public  abstract class Caser : CaserBase
     {
-        public override string GetCase(string toCase, Sex gender, Case c)
+        public override string GetCase(string toCase, Gender gender, Case c)
         {
             switch (c)
             {
@@ -65,18 +65,18 @@ public  abstract class CaserBase:ICaser
 
      
 
-        protected virtual string GetNominative(string toCase, Sex gender)
+        protected virtual string GetNominative(string toCase, Gender gender)
         {
             return toCase;
         }
 
 
-        protected abstract string GetGenitive(string toCase, Sex gender);
-        protected abstract string GetAblative(string toCase, Sex gender);
-        protected abstract string GetDative(string toCase, Sex gender);
-        protected abstract string GetPrepositional(string toCase, Sex gender);
+        protected abstract string GetGenitive(string toCase, Gender gender);
+        protected abstract string GetAblative(string toCase, Gender gender);
+        protected abstract string GetDative(string toCase, Gender gender);
+        protected abstract string GetPrepositional(string toCase, Gender gender);
 
-        protected virtual string GetAccusative(string toCase, Sex gender)
+        protected virtual string GetAccusative(string toCase, Gender gender)
         {
             return GetGenitive(toCase, gender);
         }

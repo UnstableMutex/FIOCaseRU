@@ -49,7 +49,7 @@
     <Compile Include="Lazy.cs" />
     <Compile Include="PartType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sex.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="StaticMethods\Capitalizer.cs" />
     <Compile Include="StaticMethods\Caser.cs" />
     <Compile Include="StaticMethods\ChainedCaser.cs" />

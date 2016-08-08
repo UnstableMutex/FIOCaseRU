@@ -163,14 +163,14 @@ namespace FIOCaseRU
             // dic.Add(Case.Nominative, _nominative);
         }
 
-        private Sex _sex = Sex.Undefined;
+        private Gender _gender = Gender.Undefined;
 
-        public FIO(string surname, string firstname, Sex sex)
+        public FIO(string surname, string firstname, Gender gender)
         {
             _nominative = new SimpleFIO(_defaultSettings.Capitalizer(surname), _defaultSettings.Capitalizer(firstname), string.Empty);
             _ablative = new Lazy<SimpleFIO>(() => CalcCase(Case.Ablative));
             _genitive = new Lazy<SimpleFIO>(() => CalcCase(Case.Genitive));
-            _sex = sex;
+            _gender = gender;
         }
         /// <summary>
         /// Именительный падеж
@@ -225,70 +225,70 @@ namespace FIOCaseRU
         {
             get { return _prepositional.Value; }
         }
-        public virtual Sex GetSex()
+        public virtual Gender GetSex()
         {
-            if (_sex == Sex.Undefined)
+            if (_gender == Gender.Undefined)
             {
-                _sex = GetSexByPatronymic();
+                _gender = GetSexByPatronymic();
             }
-            if (_sex == Sex.Undefined)
+            if (_gender == Gender.Undefined)
             {
-                _sex = GetSexByFirstname();
+                _gender = GetSexByFirstname();
             }
-            if (_sex == Sex.Undefined)
+            if (_gender == Gender.Undefined)
             {
-                _sex = GetSexBySurname();
+                _gender = GetSexBySurname();
             }
-            return _sex;
+            return _gender;
         }
-        protected virtual Sex GetSexByPatronymic()
+        protected virtual Gender GetSexByPatronymic()
         {
-            Sex res;
+            Gender res;
             if (Nominative.Patronymic == string.Empty)
-                return Sex.Undefined;
+                return Gender.Undefined;
             string o2simend = Nominative.Patronymic.Substring(Nominative.Patronymic.Length - 2);
             switch (o2simend)
             {
                 case "ич":
-                    res = Sex.Male;
+                    res = Gender.Male;
                     break;
                 case "на":
-                    res = Sex.Female;
+                    res = Gender.Female;
                     break;
                 case "лы":
-                    res = Sex.Male;
+                    res = Gender.Male;
                     break;
                 case "ик":
-                    res = Sex.Male;
+                    res = Gender.Male;
                     break;
                 case "зы":
-                    res = Sex.Female;
+                    res = Gender.Female;
                     break;
                 default:
-                    res = Sex.Undefined;
+                    res = Gender.Undefined;
                     break;
             }
             return res;
         }
-        protected virtual Sex GetSexByFirstname()
+        protected virtual Gender GetSexByFirstname()
         {
-            return Sex.Undefined;
+            return Gender.Undefined;
         }
-        protected virtual Sex GetSexBySurname()
+        protected virtual Gender GetSexBySurname()
         {
-            return Sex.Undefined;
+            return Gender.Undefined;
         }
 
         protected virtual SimpleFIO CalcCase(Case cCase)
         {
-            Sex sex = GetSex();
+            Gender gender = GetSex();
             string firstName = string.Empty;
             string surname = string.Empty;
             string patronymic = string.Empty;
             if (cCase == Case.Genitive)
             {
-                firstName = GetFirstNameRP(sex);
-                surname = GetSurnameRP(sex);
+                firstName = GetFirstNameRP(gender);
+                surname = GetSurnameRP(gender);
                 patronymic = GetPatronymicRP();
             }
             else if (cCase == Case.Dative)
@@ -318,7 +318,7 @@ namespace FIOCaseRU
         /// Получение имени в родительном падеже
         /// </summary>
         /// <returns></returns>
-        private string GetFirstNameRP(Sex sex)
+        private string GetFirstNameRP(Gender gender)
         {
             string firstname = Nominative.Firstname;
             string i1simEnd = firstname.Last().ToString();
@@ -400,7 +400,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (sex == Sex.Female) iRP = firstname;
+                        if (gender == Gender.Female) iRP = firstname;
                         else iRP = firstname + "а";
                     }
                     break;
@@ -414,14 +414,14 @@ namespace FIOCaseRU
                     iRP = firstname;
                     break;
                 case "й":
-                    if (sex == Sex.Female) iRP = firstname;
+                    if (gender == Gender.Female) iRP = firstname;
                     else iRP = firstname.Substring(0, firstname.Length - 1) + "я";
                     break;
                 case "я":
                     iRP = firstname.Substring(0, firstname.Length - 1) + "и";
                     break;
                 case "ь":
-                    if (sex == Sex.Female) iRP = firstname.Substring(0, firstname.Length - 1) + "и";
+                    if (gender == Gender.Female) iRP = firstname.Substring(0, firstname.Length - 1) + "и";
                     else iRP = firstname.Substring(0, firstname.Length - 1) + "я";
                     break;
             }
@@ -466,7 +466,7 @@ namespace FIOCaseRU
         /// Получение фамилии в родительном падеже
         /// </summary>
         /// <returns>Фамилия в родительном падеже</returns>
-        private string GetSurnameRP(Sex sex)
+        private string GetSurnameRP(Gender gender)
         {
             string surname = Nominative.Surname;
             string fRP = String.Empty;
@@ -544,7 +544,7 @@ namespace FIOCaseRU
                 case "ч":
                 case "ш":
                 case "щ":
-                    if (sex == Sex.Female) fRP = surname;
+                    if (gender == Gender.Female) fRP = surname;
                     else fRP = surname + "а";
                     break;
                 case "к":
@@ -554,7 +554,7 @@ namespace FIOCaseRU
                             fRP = surname;
                             break;
                         default:
-                            if (sex == Sex.Female) fRP = surname;
+                            if (gender == Gender.Female) fRP = surname;
                             else fRP = surname + "а";
                             break;
                     }
@@ -566,7 +566,7 @@ namespace FIOCaseRU
                             fRP = surname;
                             break;
                         default:
-                            if (sex == Sex.Female) fRP = surname;
+                            if (gender == Gender.Female) fRP = surname;
                             else fRP = surname + "а";
                             break;
                     }
@@ -583,7 +583,7 @@ namespace FIOCaseRU
                     fRP = surname;
                     break;
                 case "ь":
-                    if (sex == Sex.Female) fRP = surname;
+                    if (gender == Gender.Female) fRP = surname;
                     else fRP = surname.Substring(0, surname.Length - 1) + "я";
                     break;
                 case "я":
@@ -591,7 +591,7 @@ namespace FIOCaseRU
                     else fRP = surname.Substring(0, surname.Length - 1) + "и"; //данелия мужик
                     break;
                 case "й":
-                    if (sex == Sex.Female)
+                    if (gender == Gender.Female)
                     {
                         fRP = surname;
                     }
@@ -700,7 +700,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pDP = firstname;
+                        if (GetSex() == Gender.Female) pDP = firstname;
                         else pDP = firstname + "у";
                     }
                     break;
@@ -711,7 +711,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pDP = firstname;
+                        if (GetSex() == Gender.Female) pDP = firstname;
                         else pDP = firstname + "у";
                     }
                     break;
@@ -722,7 +722,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pDP = firstname;
+                        if (GetSex() == Gender.Female) pDP = firstname;
                         else pDP = firstname + "у";
                     }
                     break;
@@ -736,7 +736,7 @@ namespace FIOCaseRU
                     pDP = firstname;
                     break;
                 case "й":
-                    if (GetSex() == Sex.Female) pDP = firstname;
+                    if (GetSex() == Gender.Female) pDP = firstname;
                     else pDP = firstname.Substring(0, firstname.Length - 1) + "ю";
                     break;
                 case "я":
@@ -758,7 +758,7 @@ namespace FIOCaseRU
                     }
                     break;
                 case "ь":
-                    if (GetSex() == Sex.Female) pDP = firstname.Substring(0, firstname.Length - 1) + "и";
+                    if (GetSex() == Gender.Female) pDP = firstname.Substring(0, firstname.Length - 1) + "и";
                     else pDP = firstname.Substring(0, firstname.Length - 1) + "ю";
                     break;
             }
@@ -857,7 +857,7 @@ namespace FIOCaseRU
                 case "ш":
                 case "щ":
                 case "ч":
-                    if (GetSex() == Sex.Female) fDP = surname;
+                    if (GetSex() == Gender.Female) fDP = surname;
                     else fDP = surname + "у";
                     break;
                 case "ц":
@@ -867,7 +867,7 @@ namespace FIOCaseRU
                             fDP = surname;
                             break;
                         default:
-                            if (GetSex() == Sex.Female) fDP = surname;
+                            if (GetSex() == Gender.Female) fDP = surname;
                             else fDP = surname + "у";
                             break;
                     }
@@ -879,7 +879,7 @@ namespace FIOCaseRU
                             fDP = surname;
                             break;
                         default:
-                            if (GetSex() == Sex.Female) fDP = surname;
+                            if (GetSex() == Gender.Female) fDP = surname;
                             else fDP = surname + "у";
                             break;
                     }
@@ -896,7 +896,7 @@ namespace FIOCaseRU
                     fDP = surname;
                     break;
                 case "ь":
-                    if (GetSex() == Sex.Female) fDP = surname;
+                    if (GetSex() == Gender.Female) fDP = surname;
                     else fDP = surname.Substring(0, surname.Length - 1) + "ю";
                     break;
                 case "я":
@@ -904,7 +904,7 @@ namespace FIOCaseRU
                     else fDP = surname.Substring(0, surname.Length - 1) + "е";
                     break;
                 case "й":
-                    if (GetSex() == Sex.Female)
+                    if (GetSex() == Gender.Female)
                     {
                         fDP = surname;
                     }
@@ -961,7 +961,7 @@ namespace FIOCaseRU
         private string SurnameDPExceptioned()
         {
             var surname = Nominative.Surname;
-            if (surname.EndsWith("ок") && GetSex() == Sex.Female)
+            if (surname.EndsWith("ок") && GetSex() == Gender.Female)
                 return surname;
             return string.Empty;
         }
@@ -1050,7 +1050,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pTP = firstname;
+                        if (GetSex() == Gender.Female) pTP = firstname;
                         else pTP = firstname + "ом";
                     }
                     break;
@@ -1061,7 +1061,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pTP = firstname;
+                        if (GetSex() == Gender.Female) pTP = firstname;
                         else pTP = firstname + "ом";
                     }
                     break;
@@ -1072,7 +1072,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pTP = firstname;
+                        if (GetSex() == Gender.Female) pTP = firstname;
                         else pTP = firstname + "ом";
                     }
                     break;
@@ -1086,7 +1086,7 @@ namespace FIOCaseRU
                     pTP = firstname;
                     break;
                 case "й":
-                    if (GetSex() == Sex.Female) pTP = firstname;
+                    if (GetSex() == Gender.Female) pTP = firstname;
                     else pTP = firstname.Substring(0, firstname.Length - 1) + "ем";
                     break;
                 case "я":
@@ -1100,7 +1100,7 @@ namespace FIOCaseRU
                     }
                     break;
                 case "ь":
-                    if (GetSex() == Sex.Female) pTP = firstname + "ю";
+                    if (GetSex() == Gender.Female) pTP = firstname + "ю";
                     else pTP = firstname.Substring(0, firstname.Length - 1) + "ем";
                     break;
             }
@@ -1165,11 +1165,11 @@ namespace FIOCaseRU
                     #endregion
                     break;
                 case "в":
-                    if (GetSex() == Sex.Female) pTP = surname;
+                    if (GetSex() == Gender.Female) pTP = surname;
                     else pTP = surname + "ым";
                     break;
                 case "н":
-                    if (GetSex() == Sex.Female) pTP = surname;
+                    if (GetSex() == Gender.Female) pTP = surname;
                     else
                     {
                         if (F2simend == "ин") pTP = surname + "ым";
@@ -1180,7 +1180,7 @@ namespace FIOCaseRU
                     pTP = surname;
                     break;
                 case "ч":
-                    if (GetSex() == Sex.Female) pTP = surname;
+                    if (GetSex() == Gender.Female) pTP = surname;
                     else
                     {
                         if (F2simend == "ич") pTP = surname + "ем";
@@ -1200,11 +1200,11 @@ namespace FIOCaseRU
                 case "ф":
                 case "ш":
                 case "щ":
-                    if (GetSex() == Sex.Female) pTP = surname;
+                    if (GetSex() == Gender.Female) pTP = surname;
                     else pTP = surname + "ом";
                     break;
                 case "л":
-                    if (GetSex() == Sex.Female) pTP = surname;
+                    if (GetSex() == Gender.Female) pTP = surname;
                     else
                     {
                         if (surname.ToLower() == "орел")
@@ -1224,7 +1224,7 @@ namespace FIOCaseRU
                             pTP = surname;
                             break;
                         default:
-                            if (GetSex() == Sex.Female) pTP = surname;
+                            if (GetSex() == Gender.Female) pTP = surname;
                             else pTP = surname + "ом";
                             break;
                     }
@@ -1241,7 +1241,7 @@ namespace FIOCaseRU
                     pTP = surname;
                     break;
                 case "ь":
-                    if (GetSex() == Sex.Female) pTP = surname;
+                    if (GetSex() == Gender.Female) pTP = surname;
                     else pTP = surname.Substring(0, surname.Length - 1) + "ем";
                     break;
                 case "я":
@@ -1258,12 +1258,12 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pTP = surname;
+                        if (GetSex() == Gender.Female) pTP = surname;
                         else pTP = surname.Substring(0, surname.Length - 1) + "ей";
                     }
                     break;
                 case "й":
-                    if (GetSex() == Sex.Female)
+                    if (GetSex() == Gender.Female)
                     {
                         pTP = surname;
                     }
@@ -1399,7 +1399,7 @@ namespace FIOCaseRU
                 case "ч":
                 case "ш":
                 case "щ":
-                    if (GetSex() == Sex.Female) pPP = firstname;
+                    if (GetSex() == Gender.Female) pPP = firstname;
                     else pPP = firstname + "е";
                     break;
                 case "в":
@@ -1409,7 +1409,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pPP = firstname;
+                        if (GetSex() == Gender.Female) pPP = firstname;
                         else pPP = firstname + "е";
                     }
                     break;
@@ -1424,7 +1424,7 @@ namespace FIOCaseRU
                     }
                     else
                     {
-                        if (GetSex() == Sex.Female) pPP = firstname;
+                        if (GetSex() == Gender.Female) pPP = firstname;
                         else pPP = firstname + "е";
                     }
                     break;
@@ -1438,7 +1438,7 @@ namespace FIOCaseRU
                     pPP = firstname;
                     break;
                 case "й":
-                    if (GetSex() == Sex.Female) pPP = firstname;
+                    if (GetSex() == Gender.Female) pPP = firstname;
                     else if (i2simEnd == "ий")
                     {
                         pPP = firstname.Substring(0, firstname.Length - 1) + "и";
@@ -1464,7 +1464,7 @@ namespace FIOCaseRU
                     }
                     break;
                 case "ь":
-                    if (GetSex() == Sex.Female) pPP = firstname.Substring(0, firstname.Length - 1) + "и";
+                    if (GetSex() == Gender.Female) pPP = firstname.Substring(0, firstname.Length - 1) + "и";
                     else pPP = firstname.Substring(0, firstname.Length - 1) + "е";
                     break;
             }
@@ -1545,7 +1545,7 @@ namespace FIOCaseRU
                 case "ш":
                 case "щ":
                 case "ч":
-                    if (GetSex() == Sex.Female) fPP = surname;
+                    if (GetSex() == Gender.Female) fPP = surname;
                     else fPP = surname + "е";
                     break;
                 case "к":
@@ -1555,7 +1555,7 @@ namespace FIOCaseRU
                             fPP = surname;
                             break;
                         default:
-                            if (GetSex() == Sex.Female) fPP = surname;
+                            if (GetSex() == Gender.Female) fPP = surname;
                             else fPP = surname + "е";
                             break;
                     }
@@ -1567,7 +1567,7 @@ namespace FIOCaseRU
                             fPP = surname;
                             break;
                         default:
-                            if (GetSex() == Sex.Female) fPP = surname;
+                            if (GetSex() == Gender.Female) fPP = surname;
                             else fPP = surname + "е";
                             break;
                     }
@@ -1584,7 +1584,7 @@ namespace FIOCaseRU
                     fPP = surname;
                     break;
                 case "ь":
-                    if (GetSex() == Sex.Female) fPP = surname;
+                    if (GetSex() == Gender.Female) fPP = surname;
                     else
                     {
                         if (surname.ToLower() == "пивень") fPP = "Пивне";
@@ -1606,7 +1606,7 @@ namespace FIOCaseRU
                     else fPP = surname.Substring(0, surname.Length - 1) + "е";
                     break;
                 case "й":
-                    if (GetSex() == Sex.Female)
+                    if (GetSex() == Gender.Female)
                     {
                         fPP = surname;
                     }

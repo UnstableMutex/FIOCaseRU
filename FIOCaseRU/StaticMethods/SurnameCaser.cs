@@ -9,7 +9,7 @@ namespace FIOCaseRU.StaticMethods
     {
 
 
-        protected override string GetGenitive(string surname, Sex sex)
+        protected override string GetGenitive(string surname, Gender gender)
         {
 
             string fRP = String.Empty;
@@ -87,7 +87,7 @@ namespace FIOCaseRU.StaticMethods
                 case "ч":
                 case "ш":
                 case "щ":
-                    if (sex == Sex.Female) fRP = surname;
+                    if (gender == Gender.Female) fRP = surname;
                     else fRP = surname + "а";
                     break;
                 case "к":
@@ -97,7 +97,7 @@ namespace FIOCaseRU.StaticMethods
                             fRP = surname;
                             break;
                         default:
-                            if (sex == Sex.Female) fRP = surname;
+                            if (gender == Gender.Female) fRP = surname;
                             else fRP = surname + "а";
                             break;
                     }
@@ -109,7 +109,7 @@ namespace FIOCaseRU.StaticMethods
                             fRP = surname;
                             break;
                         default:
-                            if (sex == Sex.Female) fRP = surname;
+                            if (gender == Gender.Female) fRP = surname;
                             else fRP = surname + "а";
                             break;
                     }
@@ -126,7 +126,7 @@ namespace FIOCaseRU.StaticMethods
                     fRP = surname;
                     break;
                 case "ь":
-                    if (sex == Sex.Female) fRP = surname;
+                    if (gender == Gender.Female) fRP = surname;
                     else fRP = surname.Substring(0, surname.Length - 1) + "я";
                     break;
                 case "я":
@@ -134,7 +134,7 @@ namespace FIOCaseRU.StaticMethods
                     else fRP = surname.Substring(0, surname.Length - 1) + "и"; //данелия мужик
                     break;
                 case "й":
-                    if (sex == Sex.Female)
+                    if (gender == Gender.Female)
                     {
                         fRP = surname;
                     }
@@ -160,7 +160,7 @@ namespace FIOCaseRU.StaticMethods
             return fRP;
         }
 
-        protected override string GetAblative(string toCase, Sex gender)
+        protected override string GetAblative(string toCase, Gender gender)
         {
 
             string surname = toCase;
@@ -215,11 +215,11 @@ namespace FIOCaseRU.StaticMethods
                     #endregion
                     break;
                 case "в":
-                    if (gender == Sex.Female) pTP = surname;
+                    if (gender == Gender.Female) pTP = surname;
                     else pTP = surname + "ым";
                     break;
                 case "н":
-                    if (gender == Sex.Female) pTP = surname;
+                    if (gender == Gender.Female) pTP = surname;
                     else
                     {
                         if (F2simend == "ин") pTP = surname + "ым";
@@ -230,7 +230,7 @@ namespace FIOCaseRU.StaticMethods
                     pTP = surname;
                     break;
                 case "ч":
-                    if (gender == Sex.Female) pTP = surname;
+                    if (gender == Gender.Female) pTP = surname;
                     else
                     {
                         if (F2simend == "ич") pTP = surname + "ем";
@@ -250,11 +250,11 @@ namespace FIOCaseRU.StaticMethods
                 case "ф":
                 case "ш":
                 case "щ":
-                    if (gender == Sex.Female) pTP = surname;
+                    if (gender == Gender.Female) pTP = surname;
                     else pTP = surname + "ом";
                     break;
                 case "л":
-                    if (gender == Sex.Female) pTP = surname;
+                    if (gender == Gender.Female) pTP = surname;
                     else
                     {
                         if (surname.ToLower() == "орел")
@@ -274,7 +274,7 @@ namespace FIOCaseRU.StaticMethods
                             pTP = surname;
                             break;
                         default:
-                            if (gender == Sex.Female) pTP = surname;
+                            if (gender == Gender.Female) pTP = surname;
                             else pTP = surname + "ом";
                             break;
                     }
@@ -291,7 +291,7 @@ namespace FIOCaseRU.StaticMethods
                     pTP = surname;
                     break;
                 case "ь":
-                    if (gender == Sex.Female) pTP = surname;
+                    if (gender == Gender.Female) pTP = surname;
                     else pTP = surname.Substring(0, surname.Length - 1) + "ем";
                     break;
                 case "я":
@@ -308,12 +308,12 @@ namespace FIOCaseRU.StaticMethods
                     }
                     else
                     {
-                        if (gender == Sex.Female) pTP = surname;
+                        if (gender == Gender.Female) pTP = surname;
                         else pTP = surname.Substring(0, surname.Length - 1) + "ей";
                     }
                     break;
                 case "й":
-                    if (gender == Sex.Female)
+                    if (gender == Gender.Female)
                     {
                         pTP = surname;
                     }
@@ -344,7 +344,7 @@ namespace FIOCaseRU.StaticMethods
 
         }
 
-        protected override string GetDative(string toCase, Sex gender)
+        protected override string GetDative(string toCase, Gender gender)
         {
 
             string[] sdpoj = new[] { "ва", "на" };
@@ -432,7 +432,7 @@ namespace FIOCaseRU.StaticMethods
                 case "ш":
                 case "щ":
                 case "ч":
-                    if (gender == Sex.Female) fDP = surname;
+                    if (gender == Gender.Female) fDP = surname;
                     else fDP = surname + "у";
                     break;
                 case "ц":
@@ -442,7 +442,7 @@ namespace FIOCaseRU.StaticMethods
                             fDP = surname;
                             break;
                         default:
-                            if (gender == Sex.Female) fDP = surname;
+                            if (gender == Gender.Female) fDP = surname;
                             else fDP = surname + "у";
                             break;
                     }
@@ -454,7 +454,7 @@ namespace FIOCaseRU.StaticMethods
                             fDP = surname;
                             break;
                         default:
-                            if (gender == Sex.Female) fDP = surname;
+                            if (gender == Gender.Female) fDP = surname;
                             else fDP = surname + "у";
                             break;
                     }
@@ -471,7 +471,7 @@ namespace FIOCaseRU.StaticMethods
                     fDP = surname;
                     break;
                 case "ь":
-                    if (gender == Sex.Female) fDP = surname;
+                    if (gender == Gender.Female) fDP = surname;
                     else fDP = surname.Substring(0, surname.Length - 1) + "ю";
                     break;
                 case "я":
@@ -479,7 +479,7 @@ namespace FIOCaseRU.StaticMethods
                     else fDP = surname.Substring(0, surname.Length - 1) + "е";
                     break;
                 case "й":
-                    if (gender == Sex.Female)
+                    if (gender == Gender.Female)
                     {
                         fDP = surname;
                     }
@@ -505,7 +505,7 @@ namespace FIOCaseRU.StaticMethods
 
         }
 
-        protected override string GetPrepositional(string toCase, Sex gender)
+        protected override string GetPrepositional(string toCase, Gender gender)
         {
             string surname = toCase;
             string fPP = String.Empty;
@@ -575,7 +575,7 @@ namespace FIOCaseRU.StaticMethods
                 case "ш":
                 case "щ":
                 case "ч":
-                    if (gender == Sex.Female) fPP = surname;
+                    if (gender == Gender.Female) fPP = surname;
                     else fPP = surname + "е";
                     break;
                 case "к":
@@ -585,7 +585,7 @@ namespace FIOCaseRU.StaticMethods
                             fPP = surname;
                             break;
                         default:
-                            if (gender == Sex.Female) fPP = surname;
+                            if (gender == Gender.Female) fPP = surname;
                             else fPP = surname + "е";
                             break;
                     }
@@ -597,7 +597,7 @@ namespace FIOCaseRU.StaticMethods
                             fPP = surname;
                             break;
                         default:
-                            if (gender == Sex.Female) fPP = surname;
+                            if (gender == Gender.Female) fPP = surname;
                             else fPP = surname + "е";
                             break;
                     }
@@ -614,7 +614,7 @@ namespace FIOCaseRU.StaticMethods
                     fPP = surname;
                     break;
                 case "ь":
-                    if (gender == Sex.Female) fPP = surname;
+                    if (gender == Gender.Female) fPP = surname;
                     else
                     {
                         if (surname.ToLower() == "пивень") fPP = "Пивне";
@@ -636,7 +636,7 @@ namespace FIOCaseRU.StaticMethods
                     else fPP = surname.Substring(0, surname.Length - 1) + "е";
                     break;
                 case "й":
-                    if (gender == Sex.Female)
+                    if (gender == Gender.Female)
                     {
                         fPP = surname;
                     }

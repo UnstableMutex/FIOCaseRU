@@ -8,6 +8,7 @@ using Casers.SqlDB;
 using FIOCaseRU;
 using FIOCaseRU.StaticMethods;
 using WebAPI.Models;
+using Gender = FIOCaseRU.Gender;
 
 namespace WebAPI.Controllers
 {
@@ -62,9 +63,9 @@ namespace WebAPI.Controllers
             var sc = mixedCasers.SurnameCaser;
             var fc = mixedCasers.FirstNameCaser;
             var pc = mixedCasers.PatronymicCaser;
-            result.Nominative.Surname = sc.GetCase(surname, Sex.Undefined, Case.Nominative);
-            result.Nominative.FirstName = fc.GetCase(firstName, Sex.Undefined, Case.Nominative);
-            result.Nominative.Patronymic = pc.GetCase(patronymic, Sex.Undefined, Case.Nominative);
+            result.Nominative.Surname = sc.GetCase(surname, Gender.Undefined, Case.Nominative);
+            result.Nominative.FirstName = fc.GetCase(firstName, Gender.Undefined, Case.Nominative);
+            result.Nominative.Patronymic = pc.GetCase(patronymic, Gender.Undefined, Case.Nominative);
 
 
 
@@ -114,31 +115,31 @@ namespace WebAPI.Controllers
 
         }
 
-        private static Sex GetSex(CasedSimpleFIO nominative)
+        private static Gender GetSex(CasedSimpleFIO nominative)
         {
             DeterminyGender gdet = new DeterminyGender();
 
             var gender = gdet.ByPatronymic(nominative.Patronymic);
             return gender;
         }
-        private static Gender GetGender(CasedSimpleFIO nominative)
+        private static Models.Gender GetGender(CasedSimpleFIO nominative)
         {
             var s = GetSex(nominative);
 
             switch (s)
             {
-                case Sex.Undefined:
-                    return Gender.Undefined;
-                case Sex.Female:
-                    return Gender.Female;
-                case Sex.Male:
-                    return Gender.Male;
+                case Gender.Undefined:
+                    return Models.Gender.Undefined;
+                case Gender.Female:
+                    return Models.Gender.Female;
+                case Gender.Male:
+                    return Models.Gender.Male;
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        public CasedFIO Get(string surname, string firstName, Sex gender)
+        public CasedFIO Get(string surname, string firstName, Gender gender)
         {
             CasedFIO result = new CasedFIO();
 
@@ -148,8 +149,8 @@ namespace WebAPI.Controllers
             var sc = mixedCasers.SurnameCaser;
             var fc = mixedCasers.FirstNameCaser;
 
-            result.Nominative.Surname = sc.GetCase(surname, Sex.Undefined, Case.Nominative);
-            result.Nominative.FirstName = fc.GetCase(firstName, Sex.Undefined, Case.Nominative);
+            result.Nominative.Surname = sc.GetCase(surname, Gender.Undefined, Case.Nominative);
+            result.Nominative.FirstName = fc.GetCase(firstName, Gender.Undefined, Case.Nominative);
 
 
 
